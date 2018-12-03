@@ -16,10 +16,8 @@ public class Day3 {
 		int squaresClaimedByTwoOrMore = 0;
 
 		for (Claim claim : claims) {
-
 			for (int i = 0; i < claim.getHeight(); i++) {
 				for (int j = 0; j < claim.getWidth(); j++) {
-
 					if (fabric[claim.getDistanceTopEdge() + i][claim.getDistanceLeftEdge() + j] == null) {
 						fabric[claim.getDistanceTopEdge() + i][claim.getDistanceLeftEdge() + j] = "X";
 					} else if ("X".equals(fabric[claim.getDistanceTopEdge() + i][claim.getDistanceLeftEdge() + j])) {
@@ -28,7 +26,22 @@ public class Day3 {
 					}
 				}
 			}
+		}
 
+		for (Claim claim : claims) {
+			boolean differentThanX = false;
+			for (int i = 0; i < claim.getHeight(); i++) {
+				for (int j = 0; j < claim.getWidth(); j++) {
+					if (!"X".equals(fabric[claim.getDistanceTopEdge() + i][claim.getDistanceLeftEdge() + j])) {
+						differentThanX = true;
+						break;
+					}
+				}
+				if (differentThanX)
+					break;
+			}
+			if (!differentThanX)
+				System.out.println(claim.getId());
 		}
 
 		System.out.println(squaresClaimedByTwoOrMore);
