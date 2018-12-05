@@ -52,21 +52,23 @@ public class day4 {
 		String sleepiestGuardId = null;
 		Integer totalTimeSlept = 0;
 		Integer minuteMostSlept = 0;
+		Integer higherTimeSleepingInMinute = 0;
 
 		for (Entry<String, Map<Integer, Integer>> guardSleptMinutes : guardsSleepingMinutes.entrySet()) {
 			Map<Integer, Integer> minutesSlept = guardSleptMinutes.getValue();
 			Integer guardTotalTimeSlept = 0;
 			Integer guardMinuteMostSlept = 0;
-			Integer higherTimeSleepingInMinute = -1;
+			Integer guardHigherTimeSleepingInMinute = -1;
 			for (Entry<Integer, Integer> minuteSlept : minutesSlept.entrySet()) {
 				guardTotalTimeSlept += minuteSlept.getValue();
-				if (minuteSlept.getValue() > higherTimeSleepingInMinute) {
-					higherTimeSleepingInMinute = minuteSlept.getValue();
+				if (minuteSlept.getValue() > guardHigherTimeSleepingInMinute) {
+					guardHigherTimeSleepingInMinute = minuteSlept.getValue();
 					guardMinuteMostSlept = minuteSlept.getKey();
 				}
 			}
 
-			if (guardTotalTimeSlept > totalTimeSlept) {
+			if (guardHigherTimeSleepingInMinute > higherTimeSleepingInMinute) {
+				higherTimeSleepingInMinute = guardHigherTimeSleepingInMinute;
 				totalTimeSlept = guardTotalTimeSlept;
 				sleepiestGuardId = guardSleptMinutes.getKey();
 				minuteMostSlept = guardMinuteMostSlept;
