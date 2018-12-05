@@ -10,35 +10,48 @@ public class Day5 {
 		List<String> readStringsFromInputFile = IOUtils.readStringsFromInputFile("./src/com/rroggia/day5/input");
 		String input = readStringsFromInputFile.get(0);
 
-		String lastOne = input;
-		String currentOne = "";
+		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
-		while (!lastOne.equals(currentOne)) {
-			if (!currentOne.equals(""))
-				lastOne = currentOne;
+		String letter = "";
+		Integer length = Integer.MAX_VALUE;
+		for (int j = 0; j < alphabet.length; j++) {
 
-			String[] polymers = lastOne.split("");
-			StringBuilder polymerBuilder = new StringBuilder();
-			for (int i = 0; i < polymers.length; i++) {
-				String polymer = polymers[i];
-				String nextPolymer;
+			String lastOne = input.replace(Character.toString(alphabet[j]).toLowerCase(), "");
+			lastOne = lastOne.replace(Character.toString(alphabet[j]).toUpperCase(), "");
+			String currentOne = "";
 
-				if (i + 1 < polymers.length) {
-					nextPolymer = polymers[i + 1];
-				} else {
-					polymerBuilder.append(polymer);
-					break;
+			while (!lastOne.equals(currentOne)) {
+				if (!currentOne.equals(""))
+					lastOne = currentOne;
+
+				String[] polymers = lastOne.split("");
+				StringBuilder polymerBuilder = new StringBuilder();
+				for (int i = 0; i < polymers.length; i++) {
+					String polymer = polymers[i];
+					String nextPolymer;
+
+					if (i + 1 < polymers.length) {
+						nextPolymer = polymers[i + 1];
+					} else {
+						polymerBuilder.append(polymer);
+						break;
+					}
+
+					if (polymer.equalsIgnoreCase(nextPolymer) && !polymer.equals(nextPolymer)) {
+						i++;
+						continue;
+					} else {
+						polymerBuilder.append(polymer);
+					}
 				}
-
-				if (polymer.equalsIgnoreCase(nextPolymer) && !polymer.equals(nextPolymer)) {
-					i++;
-					continue;
-				} else {
-					polymerBuilder.append(polymer);
-				}
+				currentOne = polymerBuilder.toString();
 			}
-			currentOne = polymerBuilder.toString();
+			if (currentOne.length() < length) {
+				length = currentOne.length();
+				letter = Character.toString(alphabet[j]);
+			}
 		}
-		System.out.println(currentOne.length());
+		System.out.println(letter);
+		System.out.println(length);
 	}
 }
