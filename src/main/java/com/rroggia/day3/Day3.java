@@ -8,7 +8,7 @@ import com.rroggia.utils.IOUtils;
 public class Day3 {
 
 	public static void main(String[] args) {
-		List<String> claimsAsString = IOUtils.readStringsFromInputFile("./src/com/rroggia/day3/input");
+		List<String> claimsAsString = IOUtils.readStringsFromInputFile("/day3/input");
 		List<Claim> claims = transformStringToClaim(claimsAsString);
 
 		String[][] fabric = new String[1000][1000];

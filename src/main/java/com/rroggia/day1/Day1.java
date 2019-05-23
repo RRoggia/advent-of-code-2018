@@ -9,7 +9,7 @@ import com.rroggia.utils.IOUtils;
 public class Day1 {
 	public static void main(String[] args) {
 
-		List<Integer> frequencies = IOUtils.readIntegersFromInputFile("./src/com/rroggia/day1/input");
+		List<Integer> frequencies = IOUtils.readIntegersFromInputFile("/day1/input");
 
 		Set<Integer> frequenciesDeviceReached = new HashSet<>();
 		boolean foundFrequencyDeviceReachedTwice = false;

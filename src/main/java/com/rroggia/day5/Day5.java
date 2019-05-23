@@ -7,7 +7,7 @@ import com.rroggia.utils.IOUtils;
 public class Day5 {
 
 	public static void main(String[] args) {
-		List<String> readStringsFromInputFile = IOUtils.readStringsFromInputFile("./src/com/rroggia/day5/input");
+		List<String> readStringsFromInputFile = IOUtils.readStringsFromInputFile("/day5/input");
 		String input = readStringsFromInputFile.get(0);
 
 		char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();

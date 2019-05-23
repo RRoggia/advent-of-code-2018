@@ -8,7 +8,7 @@ public class Day2 {
 
 	public static void main(String[] args) {
 
-		List<String> boxIDs = IOUtils.readStringsFromInputFile("./src/com/rroggia/day2/input");
+		List<String> boxIDs = IOUtils.readStringsFromInputFile("/day2/input");
 
 		String commonLetters = "";
 

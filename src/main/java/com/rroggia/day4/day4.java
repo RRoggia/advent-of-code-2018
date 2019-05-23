@@ -11,10 +11,10 @@ import java.util.Map.Entry;
 
 import com.rroggia.utils.IOUtils;
 
-public class day4 {
+public class Day4 {
 
 	public static void main(String[] args) throws ParseException {
-		List<String> guardsDuties = IOUtils.readStringsFromInputFile("./src/com/rroggia/day4/input");
+		List<String> guardsDuties = IOUtils.readStringsFromInputFile("/day4/input");
 		Collections.sort(guardsDuties);
 		Map<String, Map<Integer, Integer>> guardsSleepingMinutes = new HashMap<>();
 

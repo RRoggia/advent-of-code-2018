@@ -10,10 +10,12 @@ import java.util.List;
 
 public class IOUtils {
 
+	private final static String PACKAGE_PREFIX = "./src/main/java/com/rroggia";
+
 	public static List<Integer> readIntegersFromInputFile(String inputFile) {
 		List<Integer> integers = new ArrayList<>();
 
-		try (Reader fileReader = new FileReader(inputFile);
+		try (Reader fileReader = new FileReader(PACKAGE_PREFIX + inputFile);
 				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
 			String value = bufferedReader.readLine();
@@ -35,7 +37,7 @@ public class IOUtils {
 	public static List<String> readStringsFromInputFile(String inputFile) {
 		List<String> strings = new ArrayList<>();
 
-		try (Reader fileReader = new FileReader(inputFile);
+		try (Reader fileReader = new FileReader(PACKAGE_PREFIX + inputFile);
 				BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
 			String value = bufferedReader.readLine();
