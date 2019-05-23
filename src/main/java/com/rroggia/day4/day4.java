@@ -50,7 +50,6 @@ public class day4 {
 		}
 
 		String sleepiestGuardId = null;
-		Integer totalTimeSlept = 0;
 		Integer minuteMostSlept = 0;
 		Integer higherTimeSleepingInMinute = 0;
 
@@ -69,7 +68,6 @@ public class day4 {
 
 			if (guardHigherTimeSleepingInMinute > higherTimeSleepingInMinute) {
 				higherTimeSleepingInMinute = guardHigherTimeSleepingInMinute;
-				totalTimeSlept = guardTotalTimeSlept;
 				sleepiestGuardId = guardSleptMinutes.getKey();
 				minuteMostSlept = guardMinuteMostSlept;
 			}
